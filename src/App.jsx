@@ -1,10 +1,12 @@
 import "./App.css";
 import PokemonCard from "./components/PokemonCard";
+import WeatherIcon from "./components/WeatherIcon";
 
 function App() {
   return (
-    <div>
+    <div className="figure">
       <PokemonCard />
+      <WeatherIcon />
     </div>
   );
 }
