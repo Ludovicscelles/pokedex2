@@ -6,6 +6,7 @@ import { useState } from "react";
 import InputMessage from "./components/InputMessage";
 import DisplayMessage from "./components/DIsplayMessage";
 import NavBar from "./components/NavBar";
+import Article from "./components/Article";
 
 const pokemonList = [
   {
@@ -35,13 +36,18 @@ const pokemonList = [
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
-  const handleClickPrevious = () => {
-    setPokemonIndex(pokemonIndex - 1);
+  const handleClick = (index) => {
+    setPokemonIndex(index);
   };
-  const handleClickNext = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
+
   const [message, setMessage] = useState("");
+  const cart = [
+    { name: "apple", emoji: "🍏" },
+    { name: "banana", emoji: "🍌" },
+    { name: "grape", emoji: "🍇" },
+    { name: "watermelon", emoji: "🍉" },
+  ];
+
   return (
     <div className="figure">
       <SayHello name="Wilder" name2="compagny" />
@@ -49,7 +55,23 @@ function App() {
       <InputMessage setMessage={setMessage} />
       <DisplayMessage message={message} />
       <WeatherIcon />
-      <NavBar handleClickPrevious={handleClickPrevious} handleClickNext={handleClickNext} pokemonIndex={pokemonIndex} pokemonList={pokemonList}/>  
+      <NavBar
+        handleClick={handleClick}
+        pokemonIndex={pokemonIndex}
+        pokemonList={pokemonList}
+      />
+      <h3>shopping list</h3>
+      <ul>
+        {cart
+          .filter((element) => element.name.includes("e"))
+          .map((element) => (
+            <Article
+              key={element.name}
+              name={element.name}
+              emoji={element.emoji}
+            />
+          ))}
+      </ul>
     </div>
   );
 }

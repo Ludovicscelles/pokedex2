@@ -7,7 +7,11 @@ function PokemonCard({ pokemon }) {
     <section>
       <figure>
         {pokemon.imgSrc ? (
-          <img className="pokeImage" src={pokemon.imgSrc} alt={pokemon.name}></img>
+          <img
+            className="pokeImage"
+            src={pokemon.imgSrc}
+            alt={pokemon.name}
+          ></img>
         ) : (
           <p>???</p>
         )}
@@ -21,7 +25,7 @@ function PokemonCard({ pokemon }) {
 PokemonCard.propTypes = {
   pokemon: PropTypes.shape({
     imgSrc: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
   }).isRequired,
 };
 
