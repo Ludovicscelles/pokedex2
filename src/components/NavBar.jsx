@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 
-function NavBar({ pokemonList, handleClick }) {
-  return (
+function NavBar({ pokemonList, handleClick, pokemonIndex }) {
+    if(pokemonIndex === 3){
+        alert("pika pika !!");
+    }
+    return (
     <section>
       {pokemonList.map((element, index) => (
         <button key={index} onClick={() => handleClick(index)}>

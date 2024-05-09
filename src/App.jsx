@@ -2,7 +2,7 @@ import "./App.css";
 import PokemonCard from "./components/PokemonCard";
 import WeatherIcon from "./components/WeatherIcon";
 import SayHello from "./components/SayHello";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputMessage from "./components/InputMessage";
 import DisplayMessage from "./components/DIsplayMessage";
 import NavBar from "./components/NavBar";
@@ -47,7 +47,11 @@ function App() {
     { name: "grape", emoji: "🍇" },
     { name: "watermelon", emoji: "🍉" },
   ];
-
+  useEffect(
+    () => {
+      alert("hello pokemon trainer :)");
+    }, []);
+  
   return (
     <div className="figure">
       <SayHello name="Wilder" name2="compagny" />
